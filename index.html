@@ -115,13 +115,18 @@
 	}).swipeRight(function(){
 		cid--;
 		cid=cid<1?1:cid;
-		loadImg(cid,function(){
-			domImage.addEventListener('webkitAnimationEnd',function(){
-				wImage.removeClass('animated bounceInLeft');
-				domImage.removeEventListener('webkitAnimationEnd');
-			},false)
-			wImage.addClass('animated bounceInLeft');
-		});
+		if(cid<1){
+			cid=1
+		}else{
+			loadImg(cid,function(){
+				domImage.addEventListener('webkitAnimationEnd',function(){
+					wImage.removeClass('animated bounceInLeft');
+					domImage.removeEventListener('webkitAnimationEnd');
+				},false)
+				wImage.addClass('animated bounceInLeft');
+			});
+		}
+		
 	});
 	
 </script>
